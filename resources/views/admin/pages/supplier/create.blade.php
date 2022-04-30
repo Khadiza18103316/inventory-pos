@@ -21,8 +21,8 @@
             </div>
             <div class="card-body">
 
-                {{-- <form action="{{ route('supplier.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf --}}
+                <form action="{{ route('supplier.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
@@ -57,7 +57,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Shop Name</label>
-                                <input required name="shop" type="text" placeholder="Shop Name" class="form-control">
+                                <input required name="shopname" type="text" placeholder="Shop Name" class="form-control">
 
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="mb-3">
                                 <img  id="output" height="30" width="50" src="" />
                                 <label for="exampleInputEmail1" class="form-label">Image</label>
-                                <input required name="image" type="file" id="image" class="form-control" onchange="loadFile(event)" >
+                                <input required name="photo" type="file" id="photo" class="form-control" onchange="loadFile(event)" >
 
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                         </span>
                         <span class="text">Cancel</span>
                     </a>
-                {{-- </form> --}}
+                </form>
             </div>
         </div>
     </div>

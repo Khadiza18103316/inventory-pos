@@ -31,20 +31,23 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        {{-- <tbody>
-            @foreach ($galleries as $key => $gallery)
+        <tbody>
+            @foreach ($suppliers as $key => $supplier)
                 <tr>
                     <th>{{ $key + 1 }}</th>
-                    <td><img src="{{ Storage::url($gallery->image)}}" width="80"></td>
-                    <td>{{ $gallery->name }}</td>
-                    <td>{{ $gallery->category->name }}</td>
-                    <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('gallery.edit', $gallery->id) }}">Edit</a>
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('gallery.delete', $gallery->id) }}">Delete</a>
-                    </td>
+                    <td><img src="{{ Storage::url($supplier->photo)}}" width="80"></td>
+                    <td>{{ $supplier->name }}</td>
+                    <td>{{ $supplier->email }}</td>
+                    <td>{{ $supplier->address }}</td>
+                    <td>{{ $supplier->phone}}</td>
+                    <td>{{ $supplier->shopname }}</td>
+                    {{-- <td>
+                        <a class="btn btn-info btn-sm" href="{{ route('supplier.edit', $supplier->id) }}">Edit</a>
+                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('supplier.delete', $supplier->id) }}">Delete</a>
+                    </td> --}}
                 </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 
 @endsection

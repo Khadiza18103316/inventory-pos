@@ -33,20 +33,25 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        {{-- <tbody>
-            @foreach ($galleries as $key => $gallery)
+        <tbody>
+            @foreach ($employees as $key => $employee)
                 <tr>
                     <th>{{ $key + 1 }}</th>
-                    <td><img src="{{ Storage::url($gallery->image)}}" width="80"></td>
-                    <td>{{ $gallery->name }}</td>
-                    <td>{{ $gallery->category->name }}</td>
-                    <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('gallery.edit', $gallery->id) }}">Edit</a>
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('gallery.delete', $gallery->id) }}">Delete</a>
-                    </td>
+                    <td><img src="{{ Storage::url($employee->photo)}}" width="80"></td>
+                    <td>{{ $employee->name }}</td>
+                    <td>{{ $employee->email }}</td>
+                    <td>{{ $employee->address }}</td>
+                    <td>{{ $employee->phone }}</td>
+                    <td>{{ $employee->nid }}</td>
+                    <td>{{ $employee->sallery }}</td>
+                    <td>{{ $employee->joining_date }}</td>
+                    {{-- <td>
+                        <a class="btn btn-info btn-sm" href="{{ route('employee.edit', $employee->id) }}">Edit</a>
+                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('employee.delete', $employee->id) }}">Delete</a>
+                    </td> --}}
                 </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 
 @endsection
