@@ -8,7 +8,7 @@ use App\Models\Employee;
 class EmployeeController extends Controller
 {
     public function index(){
-        $employees =Employee::latest()->get();
+        $employees =Employee::latest()->paginate(5);
         return view('admin.pages.employee.index',compact('employees'));
     }
 
