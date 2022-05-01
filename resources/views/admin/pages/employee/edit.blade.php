@@ -4,7 +4,7 @@
 <br>
 
 <div class="col-12">
-    <h3 class="mb-4">Add Employee </h3>
+    <h3 class="mb-4">Edit Employee </h3>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div>
@@ -21,13 +21,14 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('employee.update', $employee->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Name</label>
-                                <input required name="name" type="text" placeholder="Name" class="form-control">
+                                <input value="{{ $employee->name}}" name="name" type="text" placeholder="Name" class="form-control">
 
                             </div>
                         </div>
@@ -35,42 +36,42 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input required name="email" type="text" placeholder="Email" class="form-control">
+                                <input value={{ $employee->email }} name="email" type="text" placeholder="Email" class="form-control">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Address</label>
-                                <input required name="address" type="text" placeholder="Address" class="form-control">
+                                <input value="{{ $employee->address }}" name="address" type="text" placeholder="Address" class="form-control">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Phone</label>
-                                <input required name="phone" type="number" placeholder="Phone" class="form-control">
+                                <input value="{{ $employee->phone }}" name="phone" type="number" placeholder="Phone" class="form-control">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">NID</label>
-                                <input required name="nid" type="number" placeholder="NID" class="form-control">
+                                <input value="{{ $employee->nid }}" name="nid" type="number" placeholder="NID" class="form-control">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Sallery</label>
-                                <input required name="sallery" type="number" placeholder="sallery" class="form-control">
+                                <input value="{{ $employee->sallery }}" name="sallery" type="number" placeholder="sallery" class="form-control">
 
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Joining Date</label>
-                                <input required name="date" type="date" placeholder="Joining Date" class="form-control">
+                                <input value="{{ $employee->joining_date }}" name="date" type="date" placeholder="Joining Date" class="form-control">
 
                             </div>
                         </div>
@@ -79,7 +80,8 @@
                             <div class="mb-3">
                                 <img  id="output" height="30" width="50" src="" />
                                 <label for="exampleInputEmail1" class="form-label">Image</label>
-                                <input required name="photo" type="file" id="photo" class="form-control" onchange="loadFile(event)" >
+                                <img src="{{ Storage::url($employee->photo)}}" width="80">
+                                <input name="photo" type="file" id="photo" class="form-control" onchange="loadFile(event)" >
 
                             </div>
                         </div>
@@ -101,20 +103,7 @@
         </div>
     </div>
 
-<style>
-    body {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-</style>
-<script>
-  Swal.fire({
-  position: 'top-end',
-  icon: 'success',
-  title: 'Employee Created Successfully!',
-  showConfirmButton: false,
-  timer: 1500
-})
-</script>
+@endsection
 
 <script>
 var loadFile = function(event){
@@ -122,4 +111,3 @@ var loadFile = function(event){
     output.src = URL.createObjectURL(event.target.files[0]);
 };
 </script>
-@endsection

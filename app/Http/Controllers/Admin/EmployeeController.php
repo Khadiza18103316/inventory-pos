@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
@@ -23,7 +22,7 @@ class EmployeeController extends Controller
             'name'=>'required|string|min:3|max:40',
             'email'=>'required',
             'address'=>'required',
-            'phone'=>'required|numeric',
+            'phone'=>'required|numeric|digits:11',
             'sallery'=>'required',
             'nid'=>'required',
             'date'=>'required',
@@ -44,4 +43,44 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('employee.index')->with('success', 'Employee Created Successfully!');
     }
+
+    public function edit($id)
+    {
+        $employee = Employee::find($id);
+        if ($employee) {
+            return view('admin.pages.employee.edit',compact('employee'));
+        }
+    }
+
+    public function update(Request $request,$id){
+
+        $employee = Employee::find($id);
+
+        if($request->has('photo')){
+            $path = $request->photo->store('public/employee');
+        }else{
+            $path = $employee->photo;
+        }
+
+        if ($employee) {
+            $employee->update([
+                'name' =>$request->name,
+                'email' =>$request->email,
+                'address' =>$request->address,
+                'phone' =>$request->phone,
+                'nid' =>$request->nid,
+                'sallery' =>$request->sallery,
+                'joining_date' =>$request->date,
+                'photo' =>$path,
+            ]);
+            return redirect()->route('employee.index')->with('message', 'Employee Updated Successfully!');
+        }
+    }
+
+    public function delete($id)
+    {
+      Employee::find($id)->delete();
+      return redirect()->route('employee.index')->with('msg','Employee Deleted Successfully!');
+    }
+
 }

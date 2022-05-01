@@ -44,8 +44,8 @@
                     {{-- <td>
                         <a class="btn btn-info btn-sm" href="{{ route('supplier.edit', $supplier->id) }}">Edit</a>
                         <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('supplier.delete', $supplier->id) }}">Delete</a>
-                    </td> --}}
-                </tr>
+                    </td>
+                </tr> --}}
             @endforeach
         </tbody>
     </table>

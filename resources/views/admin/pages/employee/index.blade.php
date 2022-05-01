@@ -45,10 +45,10 @@
                     <td>{{ $employee->nid }}</td>
                     <td>{{ $employee->sallery }}</td>
                     <td>{{ $employee->joining_date }}</td>
-                    {{-- <td>
+                    <td>
                         <a class="btn btn-info btn-sm" href="{{ route('employee.edit', $employee->id) }}">Edit</a>
                         <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('employee.delete', $employee->id) }}">Delete</a>
-                    </td> --}}
+                    </td>
                 </tr>
             @endforeach
         </tbody>
