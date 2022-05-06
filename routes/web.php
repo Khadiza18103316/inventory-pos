@@ -31,4 +31,7 @@ Route::get('/employee/delete/{id}', [EmployeeController::class, 'delete'])->name
 Route::get('/supplier/index', [SupplierController::class, 'index'])->name('supplier.index');
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name('supplier.create');
 Route::post('/supplier/store', [SupplierController::class, 'store'])->name('supplier.store');
+Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->name('supplier.edit');
+Route::put('/supplier/update/{id}', [SupplierController::class, 'update'])->name('supplier.update');
+Route::get('/supplier/delete/{id}', [SupplierController::class, 'delete'])->name('supplier.delete');
 });
