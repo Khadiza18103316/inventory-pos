@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +36,20 @@ Route::post('/supplier/store', [SupplierController::class, 'store'])->name('supp
 Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->name('supplier.edit');
 Route::put('/supplier/update/{id}', [SupplierController::class, 'update'])->name('supplier.update');
 Route::get('/supplier/delete/{id}', [SupplierController::class, 'delete'])->name('supplier.delete');
+
+// Category
+Route::get('/category/index', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/edit/{id}', [CcategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+// Product
+// Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
+// Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+// Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+// Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+// Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
+// Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
 });
