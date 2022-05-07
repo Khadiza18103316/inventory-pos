@@ -41,15 +41,15 @@ Route::get('/supplier/delete/{id}', [SupplierController::class, 'delete'])->name
 Route::get('/category/index', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
-Route::get('/category/edit/{id}', [CcategoryController::class, 'edit'])->name('category.edit');
+Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 
-// Product
-// Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
-// Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
-// Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
-// Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-// Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
-// Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+//Product
+Route::get('/product/index', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
+Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
 });

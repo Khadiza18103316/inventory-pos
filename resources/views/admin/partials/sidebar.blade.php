@@ -21,6 +21,18 @@
           <div data-i18n="Basic">Supplier</div>
         </a>
       </li>
+      <li class="menu-item">
+        <a href="{{route('category.index')}}" class="menu-link">
+            <i class="fa-solid fa-list-check"></i>
+            <div data-i18n="Basic">Category</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{route('product.index')}}" class="menu-link">
+            <i class="fa-brands fa-product-hunt"></i>
+            <div data-i18n="Basic">Product</div>
+        </a>
+      </li>
 
     </ul>
   </aside>

@@ -18,17 +18,17 @@
     <a href="{{ route('supplier.create') }}" class="btn btn-primary float-end"><i class="fa fa-plus"></i>Add Supplier</a>
     <br>
     <br>
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover"  width="100%">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Shop Name</th>
-                <th scope="col">Action</th>
+                <th  width="5%" scope="col">#</th>
+                <th  width="12%" scope="col">Image</th>
+                <th  width="12%" scope="col">Name</th>
+                <th  width="12%" scope="col">Email</th>
+                <th  width="12%" scope="col">Address</th>
+                <th  width="12%" scope="col">Phone</th>
+                <th  width="12%" scope="col">Shop Name</th>
+                <th  width="15%" scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
