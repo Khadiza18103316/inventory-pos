@@ -4,7 +4,7 @@
 <br>
 
 <div class="col-12">
-    <h3 class="mb-4">Edit Employee </h3>
+    <h3 class="mb-4 text-center">Edit Product </h3>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div>
@@ -17,62 +17,82 @@
     <div class="col-12">
         <div class="card shadow position-relative">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Employee  Informations</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Product  Informations</h6>
             </div>
             <div class="card-body">
-
-                <form action="{{ route('employee.update', $employee->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
+
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Name</label>
-                                <input value="{{ $employee->name}}" name="name" type="text" placeholder="Name" class="form-control">
-
+                                <input value={{$product->product_name}} name="name" type="text" placeholder="Name" class="form-control">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input value={{ $employee->email }} name="email" type="text" placeholder="Email" class="form-control">
-
+                                <label for="exampleInputEmail1" class="form-label">Category</label>
+                                <select class="form-control" value={{$product->category->category_name}} name="category">
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Address</label>
-                                <input value="{{ $employee->address }}" name="address" type="text" placeholder="Address" class="form-control">
-
+                                <label for="exampleInputEmail1" class="form-label">Supplier</label>
+                                <select class="form-control" value={{$product->supplier->name}} name="supplier">
+                                    @foreach ($suppliers as $supplier)
+                                    <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Phone</label>
-                                <input value="{{ $employee->phone }}" name="phone" type="number" placeholder="Phone" class="form-control">
-
+                                <label for="exampleInputEmail1" class="form-label">Product Code</label>
+                                <input value={{$product->product_code}} name="code" type="number" placeholder="Product Code" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">NID</label>
-                                <input value="{{ $employee->nid }}" name="nid" type="number" placeholder="NID" class="form-control">
-
+                                <label for="exampleInputEmail1" class="form-label">Root</label>
+                                <input value={{ $product->root}} name="root" type="text" placeholder="Root" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Sallery</label>
-                                <input value="{{ $employee->sallery }}" name="sallery" type="number" placeholder="sallery" class="form-control">
-
+                                <label for="exampleInputEmail1" class="form-label">Buying Price</label>
+                                <input value={{$product->buying_price}} name="bprice" type="number" placeholder="Buying Price" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Joining Date</label>
-                                <input value="{{ $employee->joining_date }}" name="date" type="date" placeholder="Joining Date" class="form-control">
+                                <label for="exampleInputEmail1" class="form-label">Selling Price</label>
+                                <input value={{$product->selling_price}} name="sprice" type="number" placeholder="Selling Price" class="form-control">
+                            </div>
+                        </div>
 
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Buying Date</label>
+                                <input value={{$product->buying_date }} name="date" type="date" placeholder="Buying Date" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Product Quantity</label>
+                                <input value={{$product->product_quantity}} name="pquantity" type="number" placeholder="Product Quantity" class="form-control">
                             </div>
                         </div>
 
@@ -80,19 +100,20 @@
                             <div class="mb-3">
                                 <img  id="output" height="30" width="50" src="" />
                                 <label for="exampleInputEmail1" class="form-label">Image</label>
-                                <img src="{{ Storage::url($employee->photo)}}" width="80">
-                                <input name="photo" type="file" id="photo" class="form-control" onchange="loadFile(event)" >
-
+                                <input name="image" type="file" id="photo" class="form-control" onchange="loadFile(event)" >
+                                <img src="{{ Storage::url($product->image)}}" width="80">
                             </div>
                         </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-check"></i>
                         </span>
                         <span class="text">Submit</span>
                     </button>
-                    <a href="{{ route('employee.index') }}" class="btn btn-danger btn-icon-split">
+
+                    <a href="{{ route('product.index') }}" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-times"></i>
                         </span>
@@ -102,12 +123,10 @@
             </div>
         </div>
     </div>
-
-@endsection
-
 <script>
 var loadFile = function(event){
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
 };
 </script>
+@endsection

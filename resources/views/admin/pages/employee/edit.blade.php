@@ -4,7 +4,7 @@
 <br>
 
 <div class="col-12">
-    <h3 class="mb-4">Edit Employee </h3>
+    <h3 class="mb-4 text-center">Edit Employee </h3>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div>

@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 <br>
- <h3 class="mb-4 text-center">Employee List</h3>
+ <h3 class="mb-4 text-center">Product List</h3>
 
     @if(session()->has('msg'))
     <p class="alert alert-danger">{{session()->get('msg')}}</p>
@@ -15,44 +15,48 @@
     <p class="alert alert-message">{{session()->get('message')}}</p>
     @endif
 
-    <a href="{{ route('employee.create') }}" class="btn btn-primary float-end"><i class="fa fa-plus"></i>Add Employee</a>
+    <a href="{{ route('product.create') }}" class="btn btn-primary float-end"><i class="fa fa-plus"></i>Add Product</a>
     <br>
     <br>
     <table class="table table-striped table-bordered table-hover"  width="100%">
         <thead>
             <tr>
-                <th  width="3%"  scope="col">#</th>
-                <th  width="10%" scope="col">Image</th>
-                <th  width="10%" scope="col">Name</th>
-                <th  width="7%"  scope="col">Email</th>
-                <th  width="10%" scope="col">Address</th>
-                <th  width="10%" scope="col">Phone</th>
-                <th  width="10%" scope="col">NID</th>
-                <th  width="10%" scope="col">Sallery</th>
-                <th  width="10%" scope="col">Joining Date</th>
-                <th  width="20%" scope="col">Action</th>
+                <th scope="col">#</th>
+                <th  scope="col">Image</th>
+                <th  scope="col">Name</th>
+                <th  scope="col">Category</th>
+                <th  scope="col">Supplier</th>
+                <th  scope="col">Product Code</th>
+                <th  scope="col">Root</th>
+                <th  scope="col">Buying Price</th>
+                <th  scope="col">Selling Price</th>
+                <th  scope="col">Buying Date</th>
+                <th  scope="col">Product Quantity</th>
+                <th  scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($employees as $key => $employee)
+            @foreach ($products as $key => $product)
                 <tr>
                     <th>{{ $key + 1 }}</th>
-                    <td><img src="{{ Storage::url($employee->photo)}}" width="80"></td>
-                    <td>{{ $employee->name }}</td>
-                    <td>{{ $employee->email }}</td>
-                    <td>{{ $employee->address }}</td>
-                    <td>{{ $employee->phone }}</td>
-                    <td>{{ $employee->nid }}</td>
-                    <td>{{ $employee->sallery }}</td>
-                    <td>{{ $employee->joining_date }}</td>
+                    <td><img src="{{ Storage::url($product->image)}}" width="80"></td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->category->category_name }}</td>
+                    <td>{{ $product->supplier->name }}</td>
+                    <td>{{ $product->product_code }}</td>
+                    <td>{{ $product->root }}</td>
+                    <td>{{ $product->buying_price }}</td>
+                    <td>{{ $product->selling_price }}</td>
+                    <td>{{ $product->buying_date }}</td>
+                    <td>{{ $product->product_quantity }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="{{ route('employee.edit', $employee->id) }}">Edit</a>
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('employee.delete', $employee->id) }}">Delete</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('product.edit', $product->id) }}">Edit</a>
+                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete?')" href="{{ route('product.delete', $product->id) }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $employees->links() }}
+    {{ $products->links() }}
 
 @endsection

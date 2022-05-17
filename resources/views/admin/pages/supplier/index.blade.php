@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
 <br>
- <h3 class="mb-4">Supplier List</h3>
+ <h3 class="mb-4 text-center">Supplier List</h3>
 
     @if(session()->has('msg'))
     <p class="alert alert-danger">{{session()->get('msg')}}</p>
