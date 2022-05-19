@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ExpenseController;
 use App\Http\Controllers\Admin\ProductController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
 
 Auth::routes();
 
@@ -53,3 +54,11 @@ Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('prod
 Route::put('/product/update/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
 });
+
+//Exponse
+Route::get('/expense/index', [ExpenseController::class, 'index'])->name('expense.index');
+Route::get('/expense/create', [ExpenseController::class, 'create'])->name('expense.create');
+Route::Post('/expense/store', [ExpenseController::class, 'store'])->name('expense.store');
+Route::get('/expense/edit/{id}',[ExpenseController::class, 'edit'])->name('expense.edit');
+Route::put('/expense/update/{id}',[ExpenseController::class, 'update'])->name('expense.update');
+Route::delete('/expense/delete/{id}',[ExpenseController::class, 'delete'])->name('expense.delete');

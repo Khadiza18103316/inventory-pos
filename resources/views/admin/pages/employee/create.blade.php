@@ -11,7 +11,7 @@
                 <p class="alert alert-danger">{{ $error }}</p>
             </div>
         @endforeach
-    @endif
+    @endif   
 </div>
 
     <div class="col-12">

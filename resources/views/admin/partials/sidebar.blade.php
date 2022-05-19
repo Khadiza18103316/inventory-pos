@@ -33,6 +33,12 @@
             <div data-i18n="Basic">Product</div>
         </a>
       </li>
+      <li class="menu-item">
+        <a href="{{route('expense.index')}}" class="menu-link">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <div data-i18n="Basic">Exponse</div>
+        </a>
+      </li>
 
     </ul>
   </aside>
